@@ -113,6 +113,7 @@ import org.springframework.lang.Nullable;
  * @see DisposableBean#destroy
  * @see org.springframework.beans.factory.support.RootBeanDefinition#getDestroyMethodName
  */
+// 作为最顶层的一个接口类，定义了IOC容器的基本功能规范。对IOC的基本行为做了定义。
 public interface BeanFactory {
 
 	/**

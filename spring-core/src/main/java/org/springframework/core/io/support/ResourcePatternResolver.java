@@ -51,6 +51,7 @@ import org.springframework.core.io.ResourceLoader;
  * @see org.springframework.context.ApplicationContext
  * @see org.springframework.context.ResourceLoaderAware
  */
+// resolver [riː'zɒlvə] 溶剂;分解器;下决心者;
 public interface ResourcePatternResolver extends ResourceLoader {
 
 	/**

@@ -28,6 +28,7 @@ package org.springframework.context;
  * @see org.springframework.context.ApplicationEvent
  * @see org.springframework.context.event.EventPublicationInterceptor
  */
+// publisher [ˈpʌblɪʃə(r)] 出版者，出版商；发行人
 @FunctionalInterface
 public interface ApplicationEventPublisher {
 

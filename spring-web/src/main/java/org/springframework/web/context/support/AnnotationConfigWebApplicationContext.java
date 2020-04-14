@@ -190,19 +190,24 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 	 * @see AnnotatedBeanDefinitionReader
 	 * @see ClassPathBeanDefinitionScanner
 	 */
+	// 载入注入Bean定义资源
 	@Override
 	protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) {
+		// 为容器设置注解Bean定义读取器
 		AnnotatedBeanDefinitionReader reader = getAnnotatedBeanDefinitionReader(beanFactory);
+		// 为容器设置类路径Bean定义扫描器
 		ClassPathBeanDefinitionScanner scanner = getClassPathBeanDefinitionScanner(beanFactory);
-
+		// 获取容器Bean名称生成器
 		BeanNameGenerator beanNameGenerator = getBeanNameGenerator();
+		// 为注解Bean定义读取器和类路径扫描器设置Bean名称生成器
 		if (beanNameGenerator != null) {
 			reader.setBeanNameGenerator(beanNameGenerator);
 			scanner.setBeanNameGenerator(beanNameGenerator);
 			beanFactory.registerSingleton(AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR, beanNameGenerator);
 		}
-
+		// 获取容器的作用域元信息解析器
 		ScopeMetadataResolver scopeMetadataResolver = getScopeMetadataResolver();
+		// 为注解Bean定义读取器和类路径扫描器设置作用域元信息解析器
 		if (scopeMetadataResolver != null) {
 			reader.setScopeMetadataResolver(scopeMetadataResolver);
 			scanner.setScopeMetadataResolver(scopeMetadataResolver);
@@ -223,11 +228,13 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 			}
 			scanner.scan(StringUtils.toStringArray(this.basePackages));
 		}
-
+		// 获取容器定义的Bean定义资源路径
 		String[] configLocations = getConfigLocations();
+		// 如果定位的Bean定义资源路径不为空
 		if (configLocations != null) {
 			for (String configLocation : configLocations) {
 				try {
+					// 使用当前容器的类加载器加载定位路径的字节码文件
 					Class<?> clazz = ClassUtils.forName(configLocation, getClassLoader());
 					if (logger.isInfoEnabled()) {
 						logger.info("Successfully resolved class for [" + configLocation + "]");
@@ -239,6 +246,7 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 						logger.debug("Could not load class for config location [" + configLocation +
 								"] - trying package scan. " + ex);
 					}
+					// 如果容器加载器加载定义路径的Bean定义资源失败则启动容器类路径扫描器扫描给定路径包及其子包中的类
 					int count = scanner.scan(configLocation);
 					if (logger.isInfoEnabled()) {
 						if (count == 0) {

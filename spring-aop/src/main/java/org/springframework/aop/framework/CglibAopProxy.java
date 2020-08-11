@@ -80,6 +80,7 @@ import org.springframework.util.ObjectUtils;
  * @see AdvisedSupport#setProxyTargetClass
  * @see DefaultAopProxyFactory
  */
+// 动态代理实现AOP重要的两个类JdkDynamicAopProxy & CglibAopProxy
 @SuppressWarnings("serial")
 class CglibAopProxy implements AopProxy, Serializable {
 

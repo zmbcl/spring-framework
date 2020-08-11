@@ -25,6 +25,11 @@ import org.springframework.lang.Nullable;
  * @author Rob Harrop
  * @since 2.0
  */
+
+/**
+ * [əˈtrɪbjuːt] n. 属性
+ * ['əksesər] n. [计] 存取器；访问器
+ */
 public interface AttributeAccessor {
 
 	/**

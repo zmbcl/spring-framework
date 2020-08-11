@@ -122,6 +122,9 @@ public interface BeanFactory {
 	 * {@code myJndiObject} is a FactoryBean, getting {@code &myJndiObject}
 	 * will return the factory, not the instance returned by the factory.
 	 */
+	/**
+	 * 对factoryBean的转义定义，因为如果使用Bean的名字检索factoryBean得到的对象是工厂生成的对象，如果需要得到工厂本身需要转义
+	 */
 	String FACTORY_BEAN_PREFIX = "&";
 
 
@@ -227,6 +230,11 @@ public interface BeanFactory {
 	 * @param name the name of the bean to query
 	 * @return whether a bean with the given name is present
 	 */
+	/**
+	 * 提供对Bean的检索，看看在ioc容器中是否有这个名字的bean
+	 * @param name
+	 * @return
+	 */
 	boolean containsBean(String name);
 
 	/**
@@ -312,6 +320,12 @@ public interface BeanFactory {
 	 * @see #getBean
 	 * @see #isTypeMatch
 	 */
+	/**
+	 * 得到bean实例的class类型
+	 * @param name
+	 * @return
+	 * @throws NoSuchBeanDefinitionException
+	 */
 	@Nullable
 	Class<?> getType(String name) throws NoSuchBeanDefinitionException;
 
@@ -325,6 +339,11 @@ public interface BeanFactory {
 	 * @param name the bean name to check for aliases
 	 * @return the aliases, or an empty array if none
 	 * @see #getBean
+	 */
+	/**
+	 * 得到bean的别名，如果根据别名检索，那么其原名也会被检索出来
+	 * @param name
+	 * @return
 	 */
 	String[] getAliases(String name);
 

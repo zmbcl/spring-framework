@@ -523,11 +523,15 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	public void refresh() throws BeansException, IllegalStateException {
 		synchronized (this.startupShutdownMonitor) {
 			// Prepare this context for refreshing.
+			// [prɪˈper] vt. 准备；使适合；装备；起草 vi. 预备；做好思想准备
+			// [rɪˈfreʃ] vt. 更新；
 			// 1。调用容器准备刷新的方法，获取容器的当前时间，同时给容器设置同步标识
 			prepareRefresh();
 
 			// Tell the subclass to refresh the internal bean factory.
 			// 2。告诉子类启动refreshBeanFactory()方法，Bean定义资源文件的载入从子类的refreshBeanFactory()方法启动
+			// obtain [əbˈteɪn] vi. 获得；流行 vt. 获得
+			// Fresh [freʃ] adj. 新鲜的；清新的；淡水的；无经验的 n. 开始；新生；泛滥 adv. 刚刚，才；最新地
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
 			// Prepare the bean factory for use in this context.
@@ -615,6 +619,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 
 		// Initialize any placeholder property sources in the context environment.
+		// Initialize [ɪˈnɪʃəlaɪz] vt. 初始化
+		// [ˈhəʊldə(r)] n. 持有人；所有人
+		// Property [ˈprɒpəti] n. 性质，性能；财产；所有权
+		// Sources [sɔːsis] n. 来源（source的复数）；输入源；发起者 v. 寻求（source的第三人称单数）；起源；发起
 		initPropertySources();
 
 		// Validate that all properties marked as required are resolvable:

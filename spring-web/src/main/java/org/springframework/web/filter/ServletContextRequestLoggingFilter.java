@@ -31,6 +31,10 @@ import javax.servlet.http.HttpServletRequest;
  * @see #setAfterMessageSuffix
  * @see javax.servlet.ServletContext#log(String)
  */
+/**
+ * 继承自AbstractRequestLoggingFilter，实现beforeRequest和afterRequest
+ * 在过滤前后分别向日志文件中写入一段日志信息，日志文件可由log4j.properties等指定
+ */
 public class ServletContextRequestLoggingFilter extends AbstractRequestLoggingFilter {
 
 	/**

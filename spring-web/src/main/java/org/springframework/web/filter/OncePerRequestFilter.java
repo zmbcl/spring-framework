@@ -64,6 +64,13 @@ import org.springframework.web.util.WebUtils;
  * @author Rossen Stoyanchev
  * @since 06.12.2003
  */
+
+/**
+ * Generic [dʒəˈnerɪk] adj. （药物或商品）无专利的，未注册的
+ * 继承字GenericFilterBean，保留了GenericFilterBean中的所有方法，并对之进行了拓展，
+ * 在此类中的主要方法是doFilter
+ * ⭐️⭐️⭐️ 确保在接收到一个request后，每个filter只执行一次
+ */
 public abstract class OncePerRequestFilter extends GenericFilterBean {
 
 	/**
@@ -91,19 +98,23 @@ public abstract class OncePerRequestFilter extends GenericFilterBean {
 		}
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+		// 调用GenericFilterBean的getFilterName方法返回已过滤的属性名
 		String alreadyFilteredAttributeName = getAlreadyFilteredAttributeName();
 		boolean hasAlreadyFilteredAttribute = request.getAttribute(alreadyFilteredAttributeName) != null;
 
 		if (hasAlreadyFilteredAttribute || skipDispatch(httpRequest) || shouldNotFilter(httpRequest)) {
 
 			// Proceed without invoking this filter...
+			// 未调用该过滤器或已过滤
 			filterChain.doFilter(request, response);
 		}
 		else {
+			// invoke [ɪnˈvəʊk] vt. 调用；祈求；引起；恳求
 			// Do invoke this filter...
+			// 进行过滤
 			request.setAttribute(alreadyFilteredAttributeName, Boolean.TRUE);
 			try {
+				// 子类实现，主要作用是规定过滤的具体方法
 				doFilterInternal(httpRequest, httpResponse, filterChain);
 			}
 			finally {

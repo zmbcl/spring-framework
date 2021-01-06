@@ -78,6 +78,17 @@ import org.springframework.web.util.NestedServletException;
  * @see #initFilterBean
  * @see #doFilter
  */
+
+/**
+ * Generic [dʒəˈnerɪk] adj. （药物或商品）无专利的，未注册的
+ * 实现接口的作用：
+ * Filter：实现过滤器
+ * BeanNameAware：实现该接口的setBeanName方法，便于Bean管理器生成Bean
+ * EnvironmentAware：实现该接口的setEnvironment方法，指明该Bean的运行的环境
+ * ServletContextAware：实现该类的setServletContextAware方法，指明上下文
+ * InitializingBean：实现该接口的afterPropertiesSet方法，指明设置属性的操作
+ * DisposableBean：实现该接口的destroy方法，用于回收资源
+ */
 public abstract class GenericFilterBean implements Filter, BeanNameAware, EnvironmentAware,
 		EnvironmentCapable, ServletContextAware, InitializingBean, DisposableBean {
 
@@ -216,17 +227,23 @@ public abstract class GenericFilterBean implements Filter, BeanNameAware, Enviro
 		this.filterConfig = filterConfig;
 
 		// Set bean properties from init parameters.
+		// 从properties文件中获取值，这里是web.xml
 		PropertyValues pvs = new FilterConfigPropertyValues(filterConfig, this.requiredProperties);
 		if (!pvs.isEmpty()) {
 			try {
+				// 设置bean适配器
 				BeanWrapper bw = PropertyAccessorFactory.forBeanPropertyAccess(this);
+				// 设置上下文，这里的servletContext的设定继承自ServletContextAware的setter
 				ResourceLoader resourceLoader = new ServletContextResourceLoader(filterConfig.getServletContext());
 				Environment env = this.environment;
 				if (env == null) {
 					env = new StandardServletEnvironment();
 				}
+				// 将上下文信息和环境信息设置到bean适配器中，这里的environment来自于EnvironmentAware的setter
 				bw.registerCustomEditor(Resource.class, new ResourceEditor(resourceLoader, env));
+				// 初始化bean适配器
 				initBeanWrapper(bw);
+				// 将从properties中获取的资源放置到bean适配器
 				bw.setPropertyValues(pvs, true);
 			}
 			catch (BeansException ex) {
@@ -238,6 +255,9 @@ public abstract class GenericFilterBean implements Filter, BeanNameAware, Enviro
 		}
 
 		// Let subclasses do whatever initialization they like.
+		// 初始化bean，在两个位置起作用
+		// 1。init方法
+		// 2。afterPropertiesSet方法，在调用该方法前，需要保证filter的所有的bean都已被设置，该方法由子类实现
 		initFilterBean();
 
 		if (logger.isDebugEnabled()) {
@@ -327,6 +347,9 @@ public abstract class GenericFilterBean implements Filter, BeanNameAware, Enviro
 
 	/**
 	 * PropertyValues implementation created from FilterConfig init parameters.
+	 */
+	/**
+	 * 内部类用于将web.xml中定义的init-param的值取出
 	 */
 	@SuppressWarnings("serial")
 	private static class FilterConfigPropertyValues extends MutablePropertyValues {

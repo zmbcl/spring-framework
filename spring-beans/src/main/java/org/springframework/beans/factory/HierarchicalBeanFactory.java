@@ -30,6 +30,8 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @since 07.07.2003
  * @see org.springframework.beans.factory.config.ConfigurableBeanFactory#setParentBeanFactory
+ * Hierarchical [ˌhaɪəˈrɑːkɪkl] adj. 分层的；等级体系的
+ * 增加了对parentFactory的支持
  */
 public interface HierarchicalBeanFactory extends BeanFactory {
 

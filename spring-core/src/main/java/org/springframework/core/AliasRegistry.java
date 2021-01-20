@@ -22,6 +22,9 @@ package org.springframework.core;
  *
  * @author Juergen Hoeller
  * @since 2.5.2
+ * Alias [ˈeɪliəs] n.（尤指罪犯所用的）化名；（文件、互联网地址等用的）别名
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ * 定义别名alias简单的增删改操作
  */
 public interface AliasRegistry {
 

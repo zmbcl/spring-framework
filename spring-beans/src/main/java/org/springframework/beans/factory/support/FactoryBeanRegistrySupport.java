@@ -40,6 +40,10 @@ import org.springframework.lang.Nullable;
  *
  * @author Juergen Hoeller
  * @since 2.5.1
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ * Support [səˈpɔːt] v. 支持；帮助；支撑；维持；证实；胜任；忍受；（尤指在财政方面）资助；（在流行音乐会上）当助演；安慰；（计算机）支持……的运行 n. 支持；帮助；支撑物；支撑；扶持；物质援助；安慰；（流行乐或摇滚音乐会的）伴奏；技术支持；证据；（战争中的）支援
+ *
+ *
  */
 public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanRegistry {
 

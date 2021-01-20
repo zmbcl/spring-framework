@@ -37,6 +37,9 @@ package org.springframework.core.env;
  * @see Environment
  * @see ConfigurableEnvironment
  * @see org.springframework.context.ConfigurableApplicationContext#getEnvironment()
+ * Capable [ˈkeɪpəbl] adj. 有能力的；有才干的；容许……的；可以做（某事）的；综合性的；有资格的
+ *
+ * 定义获取Environment方法
  */
 public interface EnvironmentCapable {
 

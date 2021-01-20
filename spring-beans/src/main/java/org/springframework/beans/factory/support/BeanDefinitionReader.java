@@ -36,6 +36,7 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @since 1.1
  * @see org.springframework.core.io.Resource
+ * Definition [ˌdefɪˈnɪʃn] n. 定义；[物] 清晰度；解说
  */
 public interface BeanDefinitionReader {
 
@@ -43,6 +44,8 @@ public interface BeanDefinitionReader {
 	 * Return the bean factory to register the bean definitions with.
 	 * <p>The factory is exposed through the BeanDefinitionRegistry interface,
 	 * encapsulating the methods that are relevant for bean definition handling.
+	 * Definition [ˌdefɪˈnɪʃn] n. 定义；[物] 清晰度；解说
+	 * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
 	 */
 	BeanDefinitionRegistry getRegistry();
 
@@ -78,6 +81,10 @@ public interface BeanDefinitionReader {
 	/**
 	 * Return the BeanNameGenerator to use for anonymous beans
 	 * (without explicit bean name specified).
+	 * anonymous [əˈnɒnɪməs] adj. 匿名的，无名的；无个性特征的
+	 * explicit [ɪkˈsplɪsɪt] adj. 明确的；清楚的；直率的；详述的
+	 * specified [ˈspesɪfaɪd] adj. 规定的；详细说明的 v. 指定；详细说明（specify的过去分词）
+	 * Generator [ˈdʒenəreɪtə(r)] n. 发电机；发生器；生产者
 	 */
 	BeanNameGenerator getBeanNameGenerator();
 
@@ -118,6 +125,7 @@ public interface BeanDefinitionReader {
 	 * (or ResourcePatternResolver) of this bean definition reader
 	 * @return the number of bean definitions found
 	 * @throws BeanDefinitionStoreException in case of loading or parsing errors
+	 * locations [ləʊˈkeɪʃənz] n. 位置；地点；定位件（location 的复数）
 	 */
 	int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException;
 

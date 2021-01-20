@@ -108,6 +108,10 @@ import org.springframework.util.StringValueResolver;
  * @see #createBean
  * @see AbstractAutowireCapableBeanFactory#createBean
  * @see DefaultListableBeanFactory#getBeanDefinition
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ * Configurable [kən'fɪgərəbl] adj. 可配置的；结构的
+ *
+ * 综合FactoryBeanRegistrySupport和ConfigurableBeanFactory的功能
  */
 public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport implements ConfigurableBeanFactory {
 

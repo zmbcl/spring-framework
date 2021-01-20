@@ -50,6 +50,8 @@ package org.springframework.core.env;
  * @see ConfigurableEnvironment
  * @see SystemEnvironmentPropertySource
  * @see org.springframework.web.context.support.StandardServletEnvironment
+ * Standard [ˈstændəd] n. 标准；水准；旗；度量衡标准 adj. 标准的；合规格的；公认为优秀的
+ * Environment [ɪnˈvaɪrənmənt] n. 环境，外界
  */
 public class StandardEnvironment extends AbstractEnvironment {
 
@@ -72,6 +74,7 @@ public class StandardEnvironment extends AbstractEnvironment {
 	 * @see AbstractEnvironment#customizePropertySources(MutablePropertySources)
 	 * @see #getSystemProperties()
 	 * @see #getSystemEnvironment()
+	 * customize [ˈkʌstəmaɪz] vt. 定做，按客户具体要求制造 自定义
 	 */
 	@Override
 	protected void customizePropertySources(MutablePropertySources propertySources) {

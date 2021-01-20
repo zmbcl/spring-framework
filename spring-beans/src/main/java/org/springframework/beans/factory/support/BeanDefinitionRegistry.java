@@ -44,6 +44,11 @@ import org.springframework.core.AliasRegistry;
  * @see org.springframework.context.support.GenericApplicationContext
  * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
  * @see PropertiesBeanDefinitionReader
+ * Alias [ˈeɪliəs] n.（尤指罪犯所用的）化名；（文件、互联网地址等用的）别名
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ * Definition [ˌdefɪˈnɪʃn] n. 定义；[物] 清晰度；解说
+ *
+ * 定义了对BeanDefinition的增删改操作
  */
 public interface BeanDefinitionRegistry extends AliasRegistry {
 

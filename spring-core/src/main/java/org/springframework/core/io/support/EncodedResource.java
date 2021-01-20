@@ -41,6 +41,7 @@ import org.springframework.util.ObjectUtils;
  * @see Resource#getInputStream()
  * @see java.io.Reader
  * @see java.nio.charset.Charset
+ * Encoded [ɪn'kod] v. 把……译成电码（或密码）；把……编码；将……译成外语（encode 的过去式和过去分词）
  */
 public class EncodedResource implements InputStreamSource {
 

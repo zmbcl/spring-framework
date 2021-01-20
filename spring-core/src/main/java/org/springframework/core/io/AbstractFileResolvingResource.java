@@ -39,6 +39,7 @@ import org.springframework.util.ResourceUtils;
  *
  * @author Juergen Hoeller
  * @since 3.0
+ * Resolving [rɪ'zɑlv] n. 分解；解析 v. 分辨（resolve的ing形式）；分解；决定；解决矛盾
  */
 public abstract class AbstractFileResolvingResource extends AbstractResource {
 

@@ -28,6 +28,8 @@ import org.springframework.util.StringUtils;
  * @author Juergen Hoeller
  * @since 3.1
  * @see PropertiesPropertySource
+ * Property [ˈprɒpəti] n. 性质，性能；财产；所有权 属性
+ * Enumerable [ɪˈnjumərəbəl] adj. 可列举的；可点数的
  */
 public class MapPropertySource extends EnumerablePropertySource<Map<String, Object>> {
 

@@ -47,6 +47,11 @@ import org.springframework.util.StringValueResolver;
  * @see org.springframework.beans.factory.BeanFactory
  * @see org.springframework.beans.factory.ListableBeanFactory
  * @see ConfigurableListableBeanFactory
+ * Configurable [kən'fɪgərəbl] adj. 可配置的；结构的
+ * Hierarchical [ˌhaɪəˈrɑːkɪkl] adj. 分层的；等级体系的
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ *
+ * 提供配置factory的各种方法
  */
 public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, SingletonBeanRegistry {
 

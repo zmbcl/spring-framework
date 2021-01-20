@@ -31,6 +31,8 @@ import org.springframework.lang.Nullable;
  * @see ConfigurableBeanFactory
  * @see org.springframework.beans.factory.support.DefaultSingletonBeanRegistry
  * @see org.springframework.beans.factory.support.AbstractBeanFactory
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ * 定义对单例的注册和获取
  */
 public interface SingletonBeanRegistry {
 
@@ -54,6 +56,7 @@ public interface SingletonBeanRegistry {
 	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet
 	 * @see org.springframework.beans.factory.DisposableBean#destroy
 	 * @see org.springframework.beans.factory.support.BeanDefinitionRegistry#registerBeanDefinition
+	 * register [ˈredʒɪstə(r)] v. 登记；（旅馆）登记住宿；挂号邮寄；表达（意见或情感）；显示（读数）n. 登记表；声区；语体风格；调风口；现金收入记录机；学校点名册；（老师对学生的）点名登记；登记员；登记注册；套准
 	 */
 	void registerSingleton(String beanName, Object singletonObject);
 
@@ -129,6 +132,7 @@ public interface SingletonBeanRegistry {
 	 * Return the singleton mutex used by this registry (for external collaborators).
 	 * @return the mutex object (never {@code null})
 	 * @since 4.2
+	 * mutex n. 互斥；互斥元，互斥体；互斥量
 	 */
 	Object getSingletonMutex();
 

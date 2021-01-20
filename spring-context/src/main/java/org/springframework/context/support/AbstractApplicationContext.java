@@ -325,6 +325,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 * a custom {@link ConfigurableEnvironment} implementation.
 	 */
 	protected ConfigurableEnvironment createEnvironment() {
+		// Standard [ˈstændəd] n. 标准；水准；旗；度量衡标准 adj. 标准的；合规格的；公认为优秀的
 		return new StandardEnvironment();
 	}
 

@@ -38,10 +38,13 @@ import org.springframework.util.ResourceUtils;
  * @see org.springframework.core.io.support.ResourcePatternResolver
  * @see org.springframework.context.ApplicationContext
  * @see org.springframework.context.ResourceLoaderAware
+ * 定义资源加载器，应用于根据给定的资源文件地址返回对应的Resource
  */
 public interface ResourceLoader {
 
-	/** Pseudo URL prefix for loading from the class path: "classpath:" */
+	/** Pseudo URL prefix for loading from the class path: "classpath:"
+	 * Pseudo [ˈsuːdoʊ] n. 伪君子；假冒的人 adj. 冒充的，假的
+	 */
 	String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX;
 
 

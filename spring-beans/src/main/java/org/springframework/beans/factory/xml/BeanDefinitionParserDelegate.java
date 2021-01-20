@@ -81,11 +81,15 @@ import org.springframework.util.xml.DomUtils;
  * @since 2.0
  * @see ParserContext
  * @see DefaultBeanDefinitionDocumentReader
+ * Parser ['pɑːsə] n. [计] 分析程序；语法剖析程式
+ * Delegate [ˈdelɪɡeɪt] n. 代表，会议代表；委员会成员 v. 授（权），把……委托给他人；委派……为代表，任命
+ *
+ * 定义解析Element的各种方法
  */
 public class BeanDefinitionParserDelegate {
 
 	public static final String BEANS_NAMESPACE_URI = "http://www.springframework.org/schema/beans";
-
+	// delimiters [dɪ'lɪmɪtə] n. [计] 分隔符（delimiter的复数）
 	public static final String MULTI_VALUE_ATTRIBUTE_DELIMITERS = ",; ";
 
 	/**
@@ -244,6 +248,7 @@ public class BeanDefinitionParserDelegate {
 	/**
 	 * Create a new BeanDefinitionParserDelegate associated with the supplied
 	 * {@link XmlReaderContext}.
+	 * associated [əˈsəʊsieɪtɪd] adj. 关联的；联合的 v. 联系（associate的过去式和过去分词）
 	 */
 	public BeanDefinitionParserDelegate(XmlReaderContext readerContext) {
 		Assert.notNull(readerContext, "XmlReaderContext must not be null");
@@ -317,6 +322,8 @@ public class BeanDefinitionParserDelegate {
 	 * @param defaults the defaults to populate
 	 * @param parentDefaults the parent BeanDefinitionParserDelegate (if any) defaults to fall back to
 	 * @param root the root element of the current bean definition document (or nested beans element)
+	 * Populate [ˈpɒpjuleɪt] vt. 居住于；构成人口；移民于；殖民于
+	 * Defaults [dɪˈfɔːlt] n. 违约；[计] 默认；预设值（default的复数） v. 违约；[计] 默认（default的三单形式）
 	 */
 	protected void populateDefaults(DocumentDefaultsDefinition defaults, @Nullable DocumentDefaultsDefinition parentDefaults, Element root) {
 		String lazyInit = root.getAttribute(DEFAULT_LAZY_INIT_ATTRIBUTE);

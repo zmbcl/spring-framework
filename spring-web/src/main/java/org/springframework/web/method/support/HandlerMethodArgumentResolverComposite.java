@@ -118,12 +118,17 @@ public class HandlerMethodArgumentResolverComposite implements HandlerMethodArgu
 	@Nullable
 	public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
 			NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
-
+		// 获取对应的解析器
 		HandlerMethodArgumentResolver resolver = getArgumentResolver(parameter);
 		if (resolver == null) {
 			throw new IllegalArgumentException("Unsupported parameter type [" +
 					parameter.getParameterType().getName() + "]. supportsParameter should be called first.");
 		}
+		// 通过HandlerMethodArgumentResolver解析器解析http报文
+		// resolve [rɪˈzɒlv] vt. 决定；溶解；使……分解；决心要做……；[主化]解析 vi. 解决；决心；分解 n. 坚决；决定要做的事
+		// argument [ˈɑːɡjumənt] n. 论证；论据；争吵；内容提要；<数，逻>自变数；<语言学>主词，受词
+		// 不同的resolvers(HandlerMethodArgumentResolver接口）会对应不同的参数解析器，例如public string testDemo(String name)解析器就会变成ServletRequestMethodArgumentResolver
+		// 如果是@RequestBody，参数解析器就是RequestResponseBodyMethodProcessor
 		return resolver.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
 	}
 

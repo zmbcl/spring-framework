@@ -282,6 +282,7 @@ public abstract class AbstractJackson2HttpMessageConverter extends AbstractGener
 					config.isEnabled(SerializationFeature.INDENT_OUTPUT)) {
 				objectWriter = objectWriter.with(this.ssePrettyPrinter);
 			}
+			// 将value对象通过serialize序列化方法，将对象转为json字符串，然后设置到io流中
 			objectWriter.writeValue(generator, value);
 
 			writeSuffix(generator, object);

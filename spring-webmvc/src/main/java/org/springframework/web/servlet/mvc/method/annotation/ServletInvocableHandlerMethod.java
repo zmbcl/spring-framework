@@ -95,10 +95,13 @@ public class ServletInvocableHandlerMethod extends InvocableHandlerMethod {
 	 * @param webRequest the current request
 	 * @param mavContainer the ModelAndViewContainer for this request
 	 * @param providedArgs "given" arguments matched by type (not resolved)
+	 * invoke [ɪnˈvəʊk] vt. 调用；祈求；引起；恳求
+	 * handle [ˈhændl] v. （用手）触摸；以手（或前臂）触球；操纵（车辆）；（车辆）按特定方式作出反应；处理；对付（某人或某事）；有办法应付；经营；接受（或经营）赃物；泰然承受；（车辆容易或难以）驾驶；运送（货物）
+	 * n. （门的）把手；柄；（织物等的）手感；（非正式）（人或地方的）称呼；（非正式）赌注总额
 	 */
 	public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,
 			Object... providedArgs) throws Exception {
-
+		// 执行http请求
 		Object returnValue = invokeForRequest(webRequest, mavContainer, providedArgs);
 		setResponseStatus(webRequest);
 
@@ -115,7 +118,9 @@ public class ServletInvocableHandlerMethod extends InvocableHandlerMethod {
 
 		mavContainer.setRequestHandled(false);
 		Assert.state(this.returnValueHandlers != null, "No return value handlers");
+		// 返回值处理
 		try {
+			// returnValueHandlers为HandlerMethodReturnValueHandlerComposite对象
 			this.returnValueHandlers.handleReturnValue(
 					returnValue, getReturnValueType(returnValue), mavContainer, webRequest);
 		}

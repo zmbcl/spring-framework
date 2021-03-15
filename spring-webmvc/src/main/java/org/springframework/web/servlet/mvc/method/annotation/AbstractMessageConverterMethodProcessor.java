@@ -260,6 +260,7 @@ public abstract class AbstractMessageConverterMethodProcessor extends AbstractMe
 			for (HttpMessageConverter<?> converter : this.messageConverters) {
 				GenericHttpMessageConverter genericConverter = (converter instanceof GenericHttpMessageConverter ?
 						(GenericHttpMessageConverter<?>) converter : null);
+				// 判断是否支持返回值类型，返回值类型很有可能不同，如String、Map、List等
 				if (genericConverter != null ?
 						((GenericHttpMessageConverter) converter).canWrite(declaredType, valueType, selectedMediaType) :
 						converter.canWrite(valueType, selectedMediaType)) {
@@ -269,9 +270,11 @@ public abstract class AbstractMessageConverterMethodProcessor extends AbstractMe
 					if (outputValue != null) {
 						addContentDispositionHeader(inputMessage, outputMessage);
 						if (genericConverter != null) {
+							// 执行返回值转换，其中核心方法writeInternal
 							genericConverter.write(outputValue, declaredType, selectedMediaType, outputMessage);
 						}
 						else {
+							// 执行返回值转换，其中核心方法writeInternal
 							((HttpMessageConverter) converter).write(outputValue, selectedMediaType, outputMessage);
 						}
 						if (logger.isDebugEnabled()) {

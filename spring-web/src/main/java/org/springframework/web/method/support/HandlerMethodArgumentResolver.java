@@ -29,6 +29,9 @@ import org.springframework.web.context.request.NativeWebRequest;
  * @author Arjen Poutsma
  * @since 3.1
  * @see HandlerMethodReturnValueHandler
+ * 参数解析器接口
+ *
+ * Resolver [riː'zɒlvə] n. 溶剂；[电子] 分解器；下决心者
  */
 public interface HandlerMethodArgumentResolver {
 
@@ -38,6 +41,7 @@ public interface HandlerMethodArgumentResolver {
 	 * @param parameter the method parameter to check
 	 * @return {@code true} if this resolver supports the supplied parameter;
 	 * {@code false} otherwise
+	 * 解析器是否支持方法参数
 	 */
 	boolean supportsParameter(MethodParameter parameter);
 
@@ -55,6 +59,7 @@ public interface HandlerMethodArgumentResolver {
 	 * @param binderFactory a factory for creating {@link WebDataBinder} instances
 	 * @return the resolved argument value, or {@code null} if not resolvable
 	 * @throws Exception in case of errors with the preparation of argument values
+	 * 解析HTTP报文中对应的方法参数
 	 */
 	@Nullable
 	Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,

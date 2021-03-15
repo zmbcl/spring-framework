@@ -58,6 +58,7 @@ import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolv
  * @author Rossen Stoyanchev
  * @author Juergen Hoeller
  * @since 3.1
+ *  此解析器对应注解@requestBody
  */
 public class RequestResponseBodyMethodProcessor extends AbstractMessageConverterMethodProcessor {
 
@@ -104,7 +105,7 @@ public class RequestResponseBodyMethodProcessor extends AbstractMessageConverter
 		super(converters, manager, requestResponseBodyAdvice);
 	}
 
-
+	// RequestResponseBodyMethodProcessor的supportsParameter定义了它支持的参数类型
 	@Override
 	public boolean supportsParameter(MethodParameter parameter) {
 		return parameter.hasParameterAnnotation(RequestBody.class);
@@ -121,12 +122,14 @@ public class RequestResponseBodyMethodProcessor extends AbstractMessageConverter
 	 * @throws HttpMessageNotReadableException if {@link RequestBody#required()}
 	 * is {@code true} and there is no body content or if there is no suitable
 	 * converter to read the content with.
+	 *
 	 */
 	@Override
 	public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
 			NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
 
 		parameter = parameter.nestedIfOptional();
+		// 通过HttpMessageConverter来解析http报文为object对象
 		Object arg = readWithMessageConverters(webRequest, parameter, parameter.getNestedGenericParameterType());
 		String name = Conventions.getVariableNameForParameter(parameter);
 
@@ -174,9 +177,11 @@ public class RequestResponseBodyMethodProcessor extends AbstractMessageConverter
 
 		mavContainer.setRequestHandled(true);
 		ServletServerHttpRequest inputMessage = createInputMessage(webRequest);
+		// @ResponseBody需要通过io流来读取，也就是HttpMessageConverter最终的write会写入到io输出流中，此处就是创建一个输出流
 		ServletServerHttpResponse outputMessage = createOutputMessage(webRequest);
 
 		// Try even with null return value. ResponseBodyAdvice could get involved.
+		// 调用HttpMessageConverter执行
 		writeWithMessageConverters(returnValue, returnType, inputMessage, outputMessage);
 	}
 

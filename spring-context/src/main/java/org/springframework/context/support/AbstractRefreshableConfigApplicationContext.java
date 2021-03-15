@@ -82,6 +82,7 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 			this.configLocations = new String[locations.length];
 			for (int i = 0; i < locations.length; i++) {
 				// resolvePath为同一个类中将字符串解析为路径的方法
+				// resolve [rɪˈzɒlv] vt. 决定；溶解；使……分解；决心要做……；[主化]解析 vi. 解决；决心；分解 n. 坚决；决定要做的事
 				this.configLocations[i] = resolvePath(locations[i]).trim();
 			}
 		}
@@ -124,6 +125,9 @@ public abstract class AbstractRefreshableConfigApplicationContext extends Abstra
 	 * @param path the original file path
 	 * @return the resolved file path
 	 * @see org.springframework.core.env.Environment#resolveRequiredPlaceholders(String)
+	 * resolve [rɪˈzɒlv] vt. 决定；溶解；使……分解；决心要做……；[主化]解析 vi. 解决；决心；分解 n. 坚决；决定要做的事
+	 * Placeholders n. 占位符（placeholder的复数）
+	 * resolvePath为将字符串解析为路径的方法
 	 */
 	protected String resolvePath(String path) {
 		return getEnvironment().resolveRequiredPlaceholders(path);

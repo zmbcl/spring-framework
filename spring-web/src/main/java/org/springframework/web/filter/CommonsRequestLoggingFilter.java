@@ -32,6 +32,11 @@ import javax.servlet.http.HttpServletRequest;
  * @see #setAfterMessageSuffix
  * @see org.apache.commons.logging.Log#debug(Object)
  */
+
+/**
+ * 继承自AbstractRequestLoggingFilter，实现beforeRequest和afterRequest
+ * 在过滤前后分别打印一段debug的信息
+ */
 public class CommonsRequestLoggingFilter extends AbstractRequestLoggingFilter {
 
 	@Override

@@ -116,6 +116,8 @@ import org.springframework.util.StringUtils;
  * @see RootBeanDefinition
  * @see DefaultListableBeanFactory
  * @see BeanDefinitionRegistry
+ * Autowire n. 自动装配
+ * Capable [ˈkeɪpəbl] adj. 有能力的；有才干的；容许……的；可以做（某事）的；综合性的；有资格的
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
 		implements AutowireCapableBeanFactory {

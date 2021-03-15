@@ -32,6 +32,8 @@ import java.util.Properties;
  * @author Chris Beams
  * @author Juergen Hoeller
  * @since 3.1
+ * Properties ['prɒpətɪz] n. 性能；道具，内容（property的复数形式）
+ * Property [ˈprɒpəti] n. 性质，性能；财产；所有权 属性
  */
 public class PropertiesPropertySource extends MapPropertySource {
 

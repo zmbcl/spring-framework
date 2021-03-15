@@ -27,6 +27,9 @@ import org.springframework.lang.Nullable;
  *
  * @author Chris Beams
  * @since 3.1
+ * Configurable [kən'fɪgərəbl] adj. 可配置的；结构的
+ * Property [ˈprɒpəti] n. 性质，性能；财产；所有权 属性
+ * Resolver [riː'zɒlvə] n. 溶剂；[电子] 分解器；下决心者 解析器
  */
 public interface ConfigurablePropertyResolver extends PropertyResolver {
 

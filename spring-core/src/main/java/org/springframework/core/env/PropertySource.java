@@ -55,6 +55,7 @@ import org.springframework.util.ObjectUtils;
  * @see PropertySourcesPropertyResolver
  * @see MutablePropertySources
  * @see org.springframework.context.annotation.PropertySource
+ * Property [ˈprɒpəti] n. 性质，性能；财产；所有权 属性
  */
 public abstract class PropertySource<T> {
 

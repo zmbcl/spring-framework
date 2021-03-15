@@ -67,6 +67,8 @@ package org.springframework.core.env;
  * @see org.springframework.context.ConfigurableApplicationContext#getEnvironment
  * @see org.springframework.context.ConfigurableApplicationContext#setEnvironment
  * @see org.springframework.context.support.AbstractApplicationContext#createEnvironment
+ * Environment [ɪnˈvaɪrənmənt] n. 环境，外界
+ * Resolver [riː'zɒlvə] n. 溶剂；[电子] 分解器；下决心者 解析器
  */
 public interface Environment extends PropertyResolver {
 
@@ -82,6 +84,7 @@ public interface Environment extends PropertyResolver {
 	 * @see #getDefaultProfiles
 	 * @see ConfigurableEnvironment#setActiveProfiles
 	 * @see AbstractEnvironment#ACTIVE_PROFILES_PROPERTY_NAME
+	 * Profiles ['profaɪl] n. 配置文件；剖面图（profile的复数）；个人档案
 	 */
 	String[] getActiveProfiles();
 
@@ -91,6 +94,7 @@ public interface Environment extends PropertyResolver {
 	 * @see #getActiveProfiles
 	 * @see ConfigurableEnvironment#setDefaultProfiles
 	 * @see AbstractEnvironment#DEFAULT_PROFILES_PROPERTY_NAME
+	 * Profiles ['profaɪl] n. 配置文件；剖面图（profile的复数）；个人档案
 	 */
 	String[] getDefaultProfiles();
 
@@ -105,6 +109,7 @@ public interface Environment extends PropertyResolver {
 	 * or if any profile is {@code null}, empty or whitespace-only
 	 * @see #getActiveProfiles
 	 * @see #getDefaultProfiles
+	 * Profiles ['profaɪl] n. 配置文件；剖面图（profile的复数）；个人档案
 	 */
 	boolean acceptsProfiles(String... profiles);
 

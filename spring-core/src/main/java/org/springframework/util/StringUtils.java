@@ -640,6 +640,10 @@ public abstract class StringUtils {
 	 * notice that Windows separators ("\") are replaced by simple slashes.
 	 * @param path the original path
 	 * @return the normalized path
+	 * Normalize [ˈnɔːməlaɪz] vt. 使正常化；使规格化，使标准化
+	 * suppressing [səˈpresɪŋ adj. 制止的 v. 镇压；禁止（suppress的现在分词）
+	 * sequences [ˈsiːkwənsɪz] n. [数][计] 序列，顺序；继起的事（sequence的复数形式）
+	 * dots [dɒts] 点; 小点; 小圆点; 点(用以分隔域名、统一资源地址、电子邮件地址的组成部分)
 	 */
 	public static String cleanPath(String path) {
 		if (!hasLength(path)) {
@@ -664,9 +668,9 @@ public abstract class StringUtils {
 		}
 		if (pathToUse.startsWith(FOLDER_SEPARATOR)) {
 			prefix = prefix + FOLDER_SEPARATOR;
-			pathToUse = pathToUse.substring(1);
+		 	pathToUse = pathToUse.substring(1);
 		}
-
+		// delimited [diːˈlɪmɪtɪd] v. 划定…的界限；限定（delimit的过去分词）adj. 划定界限的；被限定了的
 		String[] pathArray = delimitedListToStringArray(pathToUse, FOLDER_SEPARATOR);
 		LinkedList<String> pathElements = new LinkedList<>();
 		int tops = 0;
@@ -1173,6 +1177,10 @@ public abstract class StringUtils {
 	 * rather than a bunch individual delimiter characters)
 	 * @return an array of the tokens in the list
 	 * @see #tokenizeToStringArray
+	 * delimited [diːˈlɪmɪtɪd] v. 划定…的界限；限定（delimit的过去分词）adj. 划定界限的；被限定了的
+	 * delimiter [dɪ'lɪmɪtə] n. [计] 定界符
+	 *
+	 * 根据delimiter来分隔str字符串
 	 */
 	public static String[] delimitedListToStringArray(@Nullable String str, @Nullable String delimiter) {
 		return delimitedListToStringArray(str, delimiter, null);
@@ -1192,6 +1200,10 @@ public abstract class StringUtils {
 	 * line breaks: e.g. "\r\n\f" will delete all new lines and line feeds in a {@code String}
 	 * @return an array of the tokens in the list
 	 * @see #tokenizeToStringArray
+	 * delimited [diːˈlɪmɪtɪd] v. 划定…的界限；限定（delimit的过去分词）adj. 划定界限的；被限定了的
+	 * delimiter [dɪ'lɪmɪtə] n. [计] 定界符
+	 *
+	 * 根据delimiter来分隔str字符串，并且剔除掉每个分段中包含在charsToDelete的字符
 	 */
 	public static String[] delimitedListToStringArray(
 			@Nullable String str, @Nullable String delimiter, @Nullable String charsToDelete) {

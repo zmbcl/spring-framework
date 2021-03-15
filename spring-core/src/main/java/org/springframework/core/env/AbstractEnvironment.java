@@ -51,6 +51,8 @@ import org.springframework.util.StringUtils;
  * @since 3.1
  * @see ConfigurableEnvironment
  * @see StandardEnvironment
+ * Environment [ɪnˈvaɪrənmənt] n. 环境，外界
+ * Configurable [kən'fɪgərəbl] adj. 可配置的；结构的
  */
 public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 

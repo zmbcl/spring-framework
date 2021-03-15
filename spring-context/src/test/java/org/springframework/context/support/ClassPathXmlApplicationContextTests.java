@@ -31,9 +31,13 @@ import org.junit.Test;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.BeanCreationException;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.CannotLoadBeanClassException;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.MessageSource;
 import org.springframework.core.io.ClassPathResource;
@@ -74,8 +78,19 @@ public class ClassPathXmlApplicationContextTests {
 
 	@Test
 	public void testSingleConfigLocation() {
+		// 已废弃的XmlBeanFactory
+		BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource(FQ_SIMPLE_CONTEXT));
+		assertTrue(beanFactory.containsBean("someMessageSource"));
+		// 替代方案1
+		ClassPathResource classPathResource = new ClassPathResource(FQ_SIMPLE_CONTEXT);
+		DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
+		XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(defaultListableBeanFactory);
+		xmlBeanDefinitionReader.loadBeanDefinitions(classPathResource);
+		assertTrue(defaultListableBeanFactory.containsBean("someMessageSource"));
+		// 替代方案2
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(FQ_SIMPLE_CONTEXT);
 		assertTrue(ctx.containsBean("someMessageSource"));
+
 		ctx.close();
 	}
 

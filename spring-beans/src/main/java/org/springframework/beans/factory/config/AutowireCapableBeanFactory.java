@@ -58,6 +58,10 @@ import org.springframework.lang.Nullable;
  * @see org.springframework.beans.factory.BeanFactoryAware
  * @see org.springframework.beans.factory.config.ConfigurableListableBeanFactory
  * @see org.springframework.context.ApplicationContext#getAutowireCapableBeanFactory()
+ * Autowire n. 自动装配
+ * Capable [ˈkeɪpəbl] adj. 有能力的；有才干的；容许……的；可以做（某事）的；综合性的；有资格的
+ *
+ * 提供创建bean、自动注入、初始化以及应用bean的后置处理器
  */
 public interface AutowireCapableBeanFactory extends BeanFactory {
 

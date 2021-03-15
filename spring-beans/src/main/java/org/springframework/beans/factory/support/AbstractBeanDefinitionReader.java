@@ -44,12 +44,15 @@ import org.springframework.util.Assert;
  * @author Chris Beams
  * @since 11.12.2003
  * @see BeanDefinitionReaderUtils
+ * Definition [ˌdefɪˈnɪʃn] n. 定义；[物] 清晰度；解说
+ * Capable [ˈkeɪpəbl] adj. 有能力的；有才干的；容许……的；可以做（某事）的；综合性的；有资格的
  */
 public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable, BeanDefinitionReader {
 
 	/** Logger available to subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
-
+	// Definition [ˌdefɪˈnɪʃn] n. 定义；[物] 清晰度；解说
+	// Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
 	private final BeanDefinitionRegistry registry;
 
 	@Nullable
@@ -59,7 +62,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 	private ClassLoader beanClassLoader;
 
 	private Environment environment;
-
+	// Generator [ˈdʒenəreɪtə(r)] n. 发电机；发生器；生产者
 	private BeanNameGenerator beanNameGenerator = new DefaultBeanNameGenerator();
 
 

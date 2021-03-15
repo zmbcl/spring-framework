@@ -58,6 +58,10 @@ import org.springframework.web.util.WebUtils;
  * @see #beforeRequest
  * @see #afterRequest
  */
+
+/**
+ * 继承了OncePerRequestFilter并实现了doFilterInternal方法
+ */
 public abstract class AbstractRequestLoggingFilter extends OncePerRequestFilter {
 
 	public static final String DEFAULT_BEFORE_MESSAGE_PREFIX = "Before request [";
@@ -235,18 +239,23 @@ public abstract class AbstractRequestLoggingFilter extends OncePerRequestFilter 
 		HttpServletRequest requestToUse = request;
 
 		if (isIncludePayload() && isFirstRequest && !(request instanceof ContentCachingRequestWrapper)) {
+			// 若日志中包含负载(request payload (body))，则重置request
+			// ⭐⭐⭐ ️ContentCachingRequestWrapper 这个类能够解决解决HttpServletRequest inputStream只能读取一次的问题，但是这个类有缺陷（前提必须是doFilter之前不能使用request.getInputStream()方法）
 			requestToUse = new ContentCachingRequestWrapper(request, getMaxPayloadLength());
 		}
 
 		boolean shouldLog = shouldLog(requestToUse);
 		if (shouldLog && isFirstRequest) {
+			// 过滤前执行的方法，由子类实现
 			beforeRequest(requestToUse, getBeforeMessage(requestToUse));
 		}
 		try {
+			// 执行过滤
 			filterChain.doFilter(requestToUse, response);
 		}
 		finally {
 			if (shouldLog && !isAsyncStarted(requestToUse)) {
+				// 过滤后执行的方法，由子类实现
 				afterRequest(requestToUse, getAfterMessage(requestToUse));
 			}
 		}

@@ -37,6 +37,9 @@ import org.springframework.util.StringValueResolver;
  *
  * @author Juergen Hoeller
  * @since 2.5.2
+ * Alias [ˈeɪliəs] n.（尤指罪犯所用的）化名；（文件、互联网地址等用的）别名
+ * Registry [ˈredʒɪstri] n. 注册；登记处；挂号处；船舶的国籍
+ * 主要使用Map作为alias的缓存
  */
 public class SimpleAliasRegistry implements AliasRegistry {
 

@@ -129,7 +129,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	 * @param configLocations array of resource locations
 	 * @param refresh whether to automatically refresh the context,
 	 * loading all bean definitions and creating all singletons.
-	 * Alternatively, call refresh manually after further configuring the context.
+	 * alternatively, call refresh manually after further configuring the context.
 	 * @param parent the parent context
 	 * @throws BeansException if context creation failed
 	 * @see #refresh()
@@ -138,10 +138,13 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 			String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
 			throws BeansException {
 		// 调用父类容器的构造方法为容器设置好Bean资源加载器
+		// 设置resourcePatternResolver = new PathMatchingResourcePatternResolver(ResourceLoader classPathXmlApplicationContext)
+		// 设置parent = null
 		super(parent);
-		// 设置Bean配置信息的定位路径
+		// 设置Bean配置信息的定位路径(super类（AbstractRefreshableConfigApplicationContext）中处理，将路径处理完成之后放入configLocations数组中)
 		setConfigLocations(configLocations);
 		if (refresh) {
+			// super类（AbstractApplicationContext）中处理
 			refresh();
 		}
 	}

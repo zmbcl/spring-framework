@@ -26,6 +26,8 @@ import org.springframework.lang.Nullable;
  * @since 3.1
  * @see Environment
  * @see PropertySourcesPropertyResolver
+ * Property [ˈprɒpəti] n. 性质，性能；财产；所有权 属性
+ * Resolver [riː'zɒlvə] n. 溶剂；[电子] 分解器；下决心者 解析器
  */
 public interface PropertyResolver {
 
@@ -99,6 +101,9 @@ public interface PropertyResolver {
 	 * @throws IllegalArgumentException if given text is {@code null}
 	 * @see #resolveRequiredPlaceholders
 	 * @see org.springframework.util.SystemPropertyUtils#resolvePlaceholders(String)
+	 * resolve [rɪˈzɒlv] vt. 决定；溶解；使……分解；决心要做……；[主化]解析 vi. 解决；决心；分解 n. 坚决；决定要做的事
+	 * holder [ˈhəʊldə(r)] n. 持有人；所有人；固定器；（台、架等）支持物
+	 * placeholders n. 占位符（placeholder的复数）
 	 */
 	String resolvePlaceholders(String text);
 
@@ -110,6 +115,9 @@ public interface PropertyResolver {
 	 * @throws IllegalArgumentException if given text is {@code null}
 	 * or if any placeholders are unresolvable
 	 * @see org.springframework.util.SystemPropertyUtils#resolvePlaceholders(String, boolean)
+	 * resolve [rɪˈzɒlv] vt. 决定；溶解；使……分解；决心要做……；[主化]解析 vi. 解决；决心；分解 n. 坚决；决定要做的事
+	 * holder [ˈhəʊldə(r)] n. 持有人；所有人；固定器；（台、架等）支持物
+	 * placeholders n. 占位符（placeholder的复数）
 	 */
 	String resolveRequiredPlaceholders(String text) throws IllegalArgumentException;
 

@@ -27,6 +27,9 @@ import org.xml.sax.InputSource;
  * @author Rob Harrop
  * @since 2.0
  * @see DefaultDocumentLoader
+ * Strategy [ˈstrætədʒi] n. 战略，策略
+ *
+ * 定义从资源文件加载到转化为Document的功能
  */
 public interface DocumentLoader {
 
@@ -41,6 +44,11 @@ public interface DocumentLoader {
 	 * @param namespaceAware {@code true} if support for XML namespaces is to be provided
 	 * @return the loaded {@link Document document}
 	 * @throws Exception if an error occurs
+	 * supplied [səˈplaɪd] adj. 有...提供的；备有...的 v. 提供；供应（supply的过去式）
+	 * Resolver [riː'zɒlvə] n. 溶剂；[电子] 分解器；下决心者 解析器
+	 * Handler [ˈhændlə(r)] n. 处理者；管理者；拳击教练；（犬马等的）训练者
+	 * validation [ˌvælɪˈdeɪʃn] n. 确认；批准；生效
+	 * Aware [əˈweə(r)] adj. 意识到的；知道的；有…方面知识的；懂世故的
 	 */
 	Document loadDocument(
 			InputSource inputSource, EntityResolver entityResolver,
